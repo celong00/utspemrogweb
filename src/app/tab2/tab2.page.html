@@ -23,10 +23,24 @@
       <ion-label slot="end">10</ion-label>
     </ion-range>
   </ion-item>
-  <ion-button (click)="TambahFoto()">
+  
+    
+    <ion-button (click)="TambahNotes()">Add Notes</ion-button>
+  <ion-button (click)="TambahFoto()">Take a new Photo
       <ion-icon name="camera"></ion-icon>
   </ion-button>
-  <ion-item>
-    <ion-button (click)="TambahNotes()">Add Notes</ion-button>
-  </ion-item>
+   <ion-grid>
+    <ion-row>
+      <ion-col size="3" *ngFor="let isiFoto of ImageStorage; index as position">
+      <ion-img [src]="isiFoto.webviewPath"></ion-img>
+      <ion-list>
+        <ion-checkbox (click)="SelectedFoto(isiFoto)" slot="end"></ion-checkbox>
+       <ion-label>{{isiFoto.nama}}</ion-label>
+     
+               
+      </ion-list>
+        
+      </ion-col>
+   </ion-row>
+  </ion-grid>
 </ion-content>

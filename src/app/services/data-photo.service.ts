@@ -27,7 +27,7 @@ export class DataPhotoService {
     console.log(Foto);
 
     const fileFoto = await this.simpanFoto(Foto)
-
+    
     this.dataFoto.unshift(fileFoto);
 
     Storage.set({

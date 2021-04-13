@@ -11,11 +11,18 @@
   </ion-toolbar>
 </ion-header>
 	<ion-content>
-  <h3>{{judul}}</h3>
-  <h3>{{isinote}}</h3>
-  <h3>{{tanggal}}</h3>
-  <h3>{{nilai}}</h3>
-  <ion-img [src]="linkPOTO"></ion-img>
+   <h3>Judul = {{judul}}</h3>
+  <h3>Isi Note = {{isinote}}</h3>
+  <h3>Tanggal = {{tanggal}}</h3>
+  <h3>Nilai = {{nilai}}</h3>
+    <ion-grid>
+    <ion-row>
+      <ion-col size="3" *ngFor="let isiFoto of allPhoto; index as position">
+      <ion-img [src]="isiFoto"></ion-img>
+        
+      </ion-col>
+   </ion-row>
+  </ion-grid>
   <ion-button (click)="edit()">Edit</ion-button>
   <ion-button (click)="delete()" color="danger">Delete</ion-button>
 </ion-content>
@@ -33,9 +40,9 @@
   </ion-toolbar>
 </ion-header>
 	<ion-content>
-  <ion-input [(ngModel)]="juduledit" placeholder="Edit Judul"></ion-input>
-  <ion-input [(ngModel)]="isinoteedit"  placeholder="Edit isi note"></ion-input>
-  <ion-input [(ngModel)]="tanggaledit"  placeholder="Edit tanggal"></ion-input>
+  Judul = <ion-input [(ngModel)]="juduledit" placeholder="Edit Judul"></ion-input>
+  Isi Note = <ion-input [(ngModel)]="isinoteedit"  placeholder="Edit isi note"></ion-input>
+  Tanggal = <ion-input [(ngModel)]="tanggaledit"  placeholder="Edit tanggal"></ion-input>
 
   <ion-label>Nilai Notes: {{nilaiedit}}</ion-label>
   <ion-item>
@@ -48,6 +55,20 @@
       <ion-icon name="camera"></ion-icon>
   </ion-button>
   <ion-button (click)="editNote()">Edit Now</ion-button>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="3" *ngFor="let isiFoto of ImageStorage; index as position">
+      <ion-img [src]="isiFoto.webviewPath"></ion-img>
+      <ion-list>
+        <ion-checkbox (click)="SelectedFoto(isiFoto)" slot="end"></ion-checkbox>
+       <ion-label>{{isiFoto.nama}}</ion-label>
+     
+               
+      </ion-list>
+        
+      </ion-col>
+   </ion-row>
+  </ion-grid>
   
 </ion-content>
 </ng-template>
