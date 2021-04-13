@@ -1,0 +1,53 @@
+<ng-template *ngIf="tampil; then templatetrue; else templatefalse"></ng-template>
+
+<ng-template #templatetrue>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+      <ion-back-button color="black"></ion-back-button>
+       <ion-title>tab Detail</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+	<ion-content>
+  <h3>{{judul}}</h3>
+  <h3>{{isinote}}</h3>
+  <h3>{{tanggal}}</h3>
+  <h3>{{nilai}}</h3>
+  <ion-img [src]="linkPOTO"></ion-img>
+  <ion-button (click)="edit()">Edit</ion-button>
+  <ion-button (click)="delete()" color="danger">Delete</ion-button>
+</ion-content>
+</ng-template>
+
+
+<ng-template #templatefalse>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+      <ion-back-button color="black">Back to Detail</ion-back-button>
+       <ion-title>tab Edit</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+	<ion-content>
+  <ion-input [(ngModel)]="juduledit" placeholder="Edit Judul"></ion-input>
+  <ion-input [(ngModel)]="isinoteedit"  placeholder="Edit isi note"></ion-input>
+  <ion-input [(ngModel)]="tanggaledit"  placeholder="Edit tanggal"></ion-input>
+
+  <ion-label>Nilai Notes: {{nilaiedit}}</ion-label>
+  <ion-item>
+    <ion-range [(ngModel)]="nilaiedit" min="0" max="10" color="secondary">
+      <ion-label slot="start">0</ion-label>
+      <ion-label slot="end">10</ion-label>
+    </ion-range>
+  </ion-item>
+  <ion-button (click)="TambahFoto()">
+      <ion-icon name="camera"></ion-icon>
+  </ion-button>
+  <ion-button (click)="editNote()">Edit Now</ion-button>
+  
+</ion-content>
+</ng-template>

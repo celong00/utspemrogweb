@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Tab 2
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Tab 2</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-input [(ngModel)]="judul" placeholder="Judul"> </ion-input>
+  <ion-input [(ngModel)]="isi" placeholder="Isi"> </ion-input>
+    <ion-input [(ngModel)]="tanggalTulis" placeholder="Tanggal"> </ion-input>
+  <ion-label>Nilai Notes: {{range}}</ion-label>
+  <ion-item>
+    <ion-range [(ngModel)]="range" min="0" max="10" color="secondary">
+      <ion-label slot="start">0</ion-label>
+      <ion-label slot="end">10</ion-label>
+    </ion-range>
+  </ion-item>
+  <ion-button (click)="TambahFoto()">
+      <ion-icon name="camera"></ion-icon>
+  </ion-button>
+  <ion-item>
+    <ion-button (click)="TambahNotes()">Add Notes</ion-button>
+  </ion-item>
+</ion-content>
